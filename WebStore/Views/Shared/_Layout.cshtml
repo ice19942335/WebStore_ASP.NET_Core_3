@@ -12,13 +12,21 @@
 @if (controller == "Home" && action == "Index")
 {
     @await Html.PartialAsync("Partial/_Slider")
+
 }
 
-<section>
-    <div class="container">
-        @RenderBody()
-    </div>
-</section>
+@if (controller == "Home" && (action == "Index" || action == "Shop"))
+{
+    @RenderBody()
+}
+else
+{
+    <section>
+        <div class="container">
+            @RenderBody()
+        </div>
+    </section>
+}
 
 @await Html.PartialAsync("Partial/_Footer")
 

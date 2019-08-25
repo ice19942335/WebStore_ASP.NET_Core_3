@@ -8,7 +8,7 @@ namespace WebStore.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index() => RedirectToAction(nameof(Shop));
+        public IActionResult Index() => View();
 
         public IActionResult Shop() => View();
 
