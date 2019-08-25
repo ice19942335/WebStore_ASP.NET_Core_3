@@ -1,10 +1,11 @@
-﻿@using WebStore.Controllers
-@{
+﻿@{
+    ViewData["Title"] = "_Layout";
     Layout = "_LayoutBase";
 
     string controller = ViewContext.RouteData.Values["Controller"].ToString();
     string action = ViewContext.RouteData.Values["Action"].ToString();
 }
+
 
 @await Html.PartialAsync("Partial/_Header")
 
@@ -15,16 +16,16 @@
 
 <section>
     <div class="container">
-        <div class="row">
-            <div class="col-sm-3">
-                @await Html.PartialAsync("Partial/_LeftSideBar")
-            </div>
-
-            <div class="col-sm-9 padding-right">
-                @RenderBody()
-            </div>
-        </div>
+        @RenderBody()
     </div>
 </section>
 
 @await Html.PartialAsync("Partial/_Footer")
+
+@section Styles {
+    @RenderSection("Styles", false)
+}
+
+@section Scripts {
+    @RenderSection("Scripts", false)
+}
