@@ -9,13 +9,13 @@ using WebStore.ViewModels;
 
 namespace WebStore.Controllers
 {
-    public class HomeController : Controller
+    public class CatalogController : Controller
     {
         private readonly IProductData _productData;
 
-        public HomeController(IProductData productData) => _productData = productData;
+        public CatalogController(IProductData productData) => _productData = productData;
 
-        public IActionResult Index(int? sectionId, int? brandId)
+        public IActionResult Shop(int? sectionId, int? brandId)
         {
             var products = _productData.GetProducts(new ProductFilter
             {
@@ -39,21 +39,5 @@ namespace WebStore.Controllers
 
             return View(catalogModel);
         }
-
-        public IActionResult ProductDetails() => View();
-
-        public IActionResult Login() => View();
-
-        public IActionResult ContactUs() => View();
-
-        public IActionResult CheckOut() => View();
-
-        public IActionResult Cart() => View();
-
-        public IActionResult BlogSingle() => View();
-
-        public IActionResult Blog() => View();
-
-        public IActionResult Error404() => View();
     }
 }

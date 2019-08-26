@@ -9,7 +9,7 @@
 @await Html.PartialAsync("Partial/_Header")
 
 
-@if (controller == "Home" && (action == "Index" || action == "Shop"))
+@if (controller == "Home" && action == "Index" || controller == "Catalog" && action == "Shop")
 {
     @RenderBody()
 }
