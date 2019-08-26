@@ -63,7 +63,7 @@ namespace WebStore.Controllers
 
                 employeeToEdit.FirstName = employee.FirstName;
                 employeeToEdit.Patronymic = employee.Patronymic;
-                employeeToEdit.SureName = employee.SureName;
+                employeeToEdit.Surname = employee.Surname;
                 employeeToEdit.Age = employee.Age;
             }
             else
