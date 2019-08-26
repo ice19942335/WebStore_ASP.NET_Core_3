@@ -1,5 +1,4 @@
 ﻿@{
-    ViewData["Title"] = "_Layout";
     Layout = "_LayoutBase";
 
     string controller = ViewContext.RouteData.Values["Controller"].ToString();
@@ -9,11 +8,6 @@
 
 @await Html.PartialAsync("Partial/_Header")
 
-@if (controller == "Home" && action == "Index")
-{
-    @await Html.PartialAsync("Partial/_Slider")
-
-}
 
 @if (controller == "Home" && (action == "Index" || action == "Shop"))
 {

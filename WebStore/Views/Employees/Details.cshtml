@@ -1,4 +1,4 @@
-﻿@model WebStore.Models.EmployeeViewModel
+﻿@model EmployeeViewModel
 @{
     ViewData["Title"] = "Details";
 }
@@ -12,20 +12,25 @@
             <th scope="col">Name</th>
             <th scope="col">Patronymic</th>
             <th scope="col">Sure name</th>
+            <th scope="col">Age</th>
         </tr>
     </thead>
     <tbody>
-        @{
-            if (Model != null)
-            {
-                <tr>
-                    <th scope="row">@Model.Id</th>
-                    <td>@Model.FirstName</td>
-                    <td>@Model.Patronymic</td>
-                    <td>@Model.SureName</td>
-                    <td>@Model.Age</td>
-                </tr>
-            }
+    @{
+        if (Model != null)
+        {
+            <tr>
+                <th scope="row">@Model.Id</th>
+                <td>@Model.FirstName</td>
+                <td>@Model.Patronymic</td>
+                <td>@Model.SureName</td>
+                <td>@Model.Age</td>
+            </tr>
         }
+    }
     </tbody>
 </table>
+
+<div>
+    <a asp-area="" asp-controller="Employees" asp-action="Index">Back to list</a>
+</div>

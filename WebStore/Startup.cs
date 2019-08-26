@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using WebStore._Infrastructure.Implementation;
+using WebStore._Infrastructure.Interfaces;
 
 namespace WebStore
 {
@@ -16,6 +18,10 @@ namespace WebStore
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<IEmployeesData, InMemoryEmployeesData>();
+
+            services.AddRazorPages();
+
             services.AddMvc();
         }
 
@@ -39,7 +45,8 @@ namespace WebStore
                     "admin",
                     "Admin/{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapControllerRoute(
-                    "default", "{controller=Home}/{action=Index}/{id?}");
+                    "default",
+                    "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

@@ -1,0 +1,49 @@
+﻿@model EmployeeViewModel
+@{
+    ViewData["Title"] = "Edit";
+    ViewData["Title"] = $"Employee edit id: { (Model.Id == 0 ? (int?) null : Model.Id)}";
+}
+
+<h4>@ViewData["Title"]</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-area="" asp-controller="Employees" asp-action="Edit" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input asp-for="Id" hidden />
+
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Patronymic" class="control-label"></label>
+                <input asp-for="Patronymic" class="form-control" />
+                <span asp-validation-for="Patronymic" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="SureName" class="control-label"></label>
+                <input asp-for="SureName" class="form-control" />
+                <span asp-validation-for="SureName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Age" class="control-label"></label>
+                <input asp-for="Age" class="form-control" />
+                <span asp-validation-for="Age" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" class="form-control" value="Save" class="btn btn-default"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-area="" asp-controller="Employees" asp-action="Index">Back to list</a>
+</div>
