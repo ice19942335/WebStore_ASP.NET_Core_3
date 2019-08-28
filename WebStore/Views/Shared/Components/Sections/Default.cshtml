@@ -10,13 +10,13 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordian" href="#@parentSection.Name">
+                        <a data-toggle="collapse" data-parent="#accordian" href="@($"#sectionId_{parentSection.Id}")">
                             <span class="badge pull-right"><i class="fa fa-plus"></i></span>
                             @parentSection.Name
                         </a>
                     </h4>
                 </div>
-                <div id="@parentSection.Name" class="panel-collapse collapse">
+                <div id="@($"sectionId_{parentSection.Id}")" class="panel-collapse collapse">
                     <div class="panel-body">
                         <ul>
                             @{
