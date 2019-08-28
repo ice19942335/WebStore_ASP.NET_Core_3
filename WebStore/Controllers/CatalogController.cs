@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using WebStore._Infrastructure.Interfaces;
+using WebStore._Infrastructure.Map;
 using WebStore.Domain.Entities;
 using WebStore.ViewModels;
 
@@ -27,14 +28,7 @@ namespace WebStore.Controllers
             {
                 BrandId = brandId,
                 SectionId = sectionId,
-                Products = products.Select(product => new ProductViewModel
-                {
-                    Id = product.Id,
-                    Name = product.Name,
-                    Order = product.Order,
-                    Price = product.Price,
-                    ImageUrl = product.ImageUrl
-                })
+                Products = products.Select(product => product.CreateViewModel())
             };
 
             return View(catalogModel);
