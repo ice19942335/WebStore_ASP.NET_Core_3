@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using WebStore._Infrastructure.Implementation;
 using WebStore._Infrastructure.Interfaces;
 using WebStore.DAL.Context;
+using WebStore.Data;
 
 namespace WebStore
 {
@@ -28,6 +29,7 @@ namespace WebStore
             services.AddMvc();
 
             services.AddDbContext<WebStoreContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
+            services.AddTransient<WebStoreContextInitializer>();
 
             services.AddSingleton<IEmployeesData, InMemoryEmployeesData>();
             services.AddSingleton<IProductData, InMemoryProductData>();
@@ -36,8 +38,10 @@ namespace WebStore
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, WebStoreContextInitializer dbInitializer)
         {
+            dbInitializer.InitializeAsync().Wait();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
