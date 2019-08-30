@@ -5,8 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.6" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.2.6">
+    <Compile Remove="Migrations\20190830181737_Initial.cs" />
+    <Compile Remove="Migrations\20190830181737_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20190830182621_Initial.cs" />
+    <Compile Remove="Migrations\20190830182621_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20190830183935_Initial.cs" />
+    <Compile Remove="Migrations\20190830183935_Initial.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.0.0-preview8.19405.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.0.0-preview8.19405.11">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
