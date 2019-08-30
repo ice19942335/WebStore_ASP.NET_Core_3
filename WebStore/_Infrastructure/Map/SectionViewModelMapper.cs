@@ -30,7 +30,7 @@ namespace WebStore._Infrastructure.Map
             section.Order = model.Order;
         }
 
-        public static Section Create(this SectionViewModel model)
+        public static Section CreateSection(this SectionViewModel model)
         {
             var section = new Section();
             model.CopyToSection(section);

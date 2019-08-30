@@ -29,7 +29,7 @@ namespace WebStore._Infrastructure.Map
             brand.Order = model.Order;
         }
 
-        public static Brand Create(this BrandViewModel model)
+        public static Brand CreateBrand(this BrandViewModel model)
         {
             var brand = new Brand();
             model.CopyToBrand(brand);

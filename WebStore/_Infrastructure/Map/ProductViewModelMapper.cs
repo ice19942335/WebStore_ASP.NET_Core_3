@@ -33,7 +33,7 @@ namespace WebStore._Infrastructure.Map
             product.Price = model.Price;
         }
 
-        public static Product Create(this ProductViewModel model)
+        public static Product CreateProduct(this ProductViewModel model)
         {
             var product = new Product();
             model.CopyToProduct(product);
