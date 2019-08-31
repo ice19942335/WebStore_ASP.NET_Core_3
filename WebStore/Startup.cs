@@ -31,8 +31,9 @@ namespace WebStore
             services.AddDbContext<WebStoreContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
             services.AddTransient<WebStoreContextInitializer>();
 
+            services.AddScoped<IProductData, SqlProductData>();
+
             services.AddSingleton<IEmployeesData, InMemoryEmployeesData>();
-            services.AddSingleton<IProductData, InMemoryProductData>();
 
             services.AddRazorPages();
         }
