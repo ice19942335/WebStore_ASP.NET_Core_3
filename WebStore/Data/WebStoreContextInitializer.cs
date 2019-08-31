@@ -14,7 +14,6 @@ namespace WebStore.Data
 
         public WebStoreContextInitializer(WebStoreContext ctx) => _context = ctx;
 
-        [Obsolete]
         public async Task InitializeAsync()
         {
            await _context.Database.MigrateAsync();
@@ -23,7 +22,7 @@ namespace WebStore.Data
                 return;
 
 
-            await using (var transaction = _context.Database.BeginTransaction())
+            using (var transaction = _context.Database.BeginTransaction())
             {
                 _context.Sections.AddRange(TestData.Sections);
                 _context.Database.ExecuteSqlCommand("SET IDENTITY_INSERT [dbo].[Sections] ON");
@@ -33,7 +32,7 @@ namespace WebStore.Data
                 transaction.Commit();
             }
 
-            await using (var transaction = _context.Database.BeginTransaction())
+            using (var transaction = _context.Database.BeginTransaction())
             {
                 _context.Brands.AddRange(TestData.Brands);
                 _context.Database.ExecuteSqlCommand("SET IDENTITY_INSERT [dbo].[Brands] ON");
@@ -43,7 +42,7 @@ namespace WebStore.Data
                 transaction.Commit();
             }
 
-            await using (var transaction = _context.Database.BeginTransaction())
+            using (var transaction = _context.Database.BeginTransaction())
             {
                 _context.Products.AddRange(TestData.Products);
                 _context.Database.ExecuteSqlCommand("SET IDENTITY_INSERT [dbo].[Products] ON");
