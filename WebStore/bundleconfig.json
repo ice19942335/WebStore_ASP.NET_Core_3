@@ -2,7 +2,6 @@
   {
     "outputFileName": "wwwroot/css/site.css",
     "inputFiles": [
-
       "wwwroot/css/main.css",
       "wwwroot/css/price-range.css",
       "wwwroot/css/prettyPhoto.css",
