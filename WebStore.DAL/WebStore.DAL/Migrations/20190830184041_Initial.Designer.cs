@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using WebStore.DAL.Context;
+using WebStore.App.DAL.Context;
 
-namespace WebStore.DAL.Migrations
+namespace WebStore.App.DAL.Migrations
 {
     [DbContext(typeof(WebStoreContext))]
     [Migration("20190830184041_Initial")]

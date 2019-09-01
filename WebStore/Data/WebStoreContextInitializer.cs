@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using WebStore._TestData;
-using WebStore.DAL.Context;
+using WebStore.App.DAL.Context;
 
 namespace WebStore.Data
 {

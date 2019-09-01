@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace WebStore.DAL.Migrations
+namespace WebStore.App.DAL.Migrations
 {
     public partial class Initial : Migration
     {

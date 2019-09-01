@@ -11,20 +11,10 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.0.0-preview8.19405.4" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0-preview8-19413-06" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WebStore.DAL\WebStore.DAL\WebStore.DAL.csproj" />
-    <ProjectReference Include="..\WebStore.Domain\WebStore.Domain\WebStore.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Update="Views\Account\LogIn.cshtml">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
+    <ProjectReference Include="..\..\WebStore.Domain\WebStore.Domain\WebStore.Domain.csproj" />
   </ItemGroup>
 
 </Project>

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using WebStore._Infrastructure.Interfaces;
-using WebStore.DAL.Context;
+using WebStore.App.DAL.Context;
 using WebStore.Domain.Entities;
 
 namespace WebStore._Infrastructure.Implementation
