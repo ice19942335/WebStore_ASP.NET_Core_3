@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using WebStore._Infrastructure.Implementation;
+using WebStore._Infrastructure.Implementation.InMemory;
 using WebStore._Infrastructure.Interfaces;
 using WebStore.App.DAL.Context;
 using WebStore.Data;

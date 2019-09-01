@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using WebStore._TestData;
 using WebStore.App.DAL.Context;
 
 namespace WebStore.Data
@@ -24,7 +23,7 @@ namespace WebStore.Data
 
             using (var transaction = _context.Database.BeginTransaction())
             {
-                _context.Sections.AddRange(TestData.Sections);
+                _context.Sections.AddRange(InitializationData.Sections);
                 _context.Database.ExecuteSqlRaw("SET IDENTITY_INSERT [dbo].[Sections] ON");
                 _context.SaveChanges();
                 _context.Database.ExecuteSqlRaw("SET IDENTITY_INSERT [dbo].[Sections] OFF");
@@ -34,7 +33,7 @@ namespace WebStore.Data
 
             using (var transaction = _context.Database.BeginTransaction())
             {
-                _context.Brands.AddRange(TestData.Brands);
+                _context.Brands.AddRange(InitializationData.Brands);
                 _context.Database.ExecuteSqlRaw("SET IDENTITY_INSERT [dbo].[Brands] ON");
                 _context.SaveChanges();
                 _context.Database.ExecuteSqlRaw("SET IDENTITY_INSERT [dbo].[Brands] OFF");
@@ -44,7 +43,7 @@ namespace WebStore.Data
 
             using (var transaction = _context.Database.BeginTransaction())
             {
-                _context.Products.AddRange(TestData.Products);
+                _context.Products.AddRange(InitializationData.Products);
                 _context.Database.ExecuteSqlRaw("SET IDENTITY_INSERT [dbo].[Products] ON");
                 _context.SaveChanges();
                 _context.Database.ExecuteSqlRaw("SET IDENTITY_INSERT [dbo].[Products] OFF");
