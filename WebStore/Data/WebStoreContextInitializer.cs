@@ -4,8 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using WebStore.App.DAL.Context;
-using WebStore.Domain.Identity;
+using WebStore.DAL.Context;
+using WebStore.Domain.Entities.Identity;
 
 namespace WebStore.Data
 {
@@ -32,7 +32,7 @@ namespace WebStore.Data
                 return;
 
 
-            using (var transaction = _context.Database.BeginTransaction())
+            await using (var transaction = _context.Database.BeginTransaction())
             {
                 await _context.Sections.AddRangeAsync(InitializationData.Sections);
                 await _context.Database.ExecuteSqlRawAsync("SET IDENTITY_INSERT [dbo].[Sections] ON");
@@ -42,7 +42,7 @@ namespace WebStore.Data
                 await transaction.CommitAsync();
             }
 
-            using (var transaction = _context.Database.BeginTransaction())
+            await using (var transaction = _context.Database.BeginTransaction())
             {
                 await _context.Brands.AddRangeAsync(InitializationData.Brands);
                 await _context.Database.ExecuteSqlRawAsync("SET IDENTITY_INSERT [dbo].[Brands] ON");
@@ -52,7 +52,7 @@ namespace WebStore.Data
                 await transaction.CommitAsync();
             }
 
-            using (var transaction = _context.Database.BeginTransaction())
+            await using (var transaction = _context.Database.BeginTransaction())
             {
                 await _context.Products.AddRangeAsync(InitializationData.Products);
                 await _context.Database.ExecuteSqlRawAsync("SET IDENTITY_INSERT [dbo].[Products] ON");

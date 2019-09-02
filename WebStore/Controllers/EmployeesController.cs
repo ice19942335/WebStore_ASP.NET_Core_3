@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebStore._Infrastructure.Implementation;
 using WebStore._Infrastructure.Interfaces;
@@ -9,6 +11,7 @@ using WebStore.ViewModels;
 
 namespace WebStore.Controllers
 {
+    [Authorize]
     public class EmployeesController : Controller
     {
         private readonly IEmployeesData _employeesData;
@@ -32,6 +35,7 @@ namespace WebStore.Controllers
             return View(employee);
         }
 
+        [Authorize(Roles = Domain.Entities.Identity.User.RoleAdmin)]
         public IActionResult Edit(int? id)
         {
             EmployeeViewModel employee;

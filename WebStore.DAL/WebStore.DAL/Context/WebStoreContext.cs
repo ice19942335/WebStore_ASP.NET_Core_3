@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using WebStore.Domain.Entities;
-using WebStore.Domain.Identity;
+using WebStore.Domain.Entities.Identity;
 
-
-namespace WebStore.App.DAL.Context
+namespace WebStore.DAL.Context
 {
     public class WebStoreContext : IdentityDbContext<User>
     {

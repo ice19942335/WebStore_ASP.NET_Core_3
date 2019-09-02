@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using WebStore.App.DAL.Context;
+using WebStore.DAL.Context;
 
-namespace WebStore.App.DAL.Migrations
+namespace WebStore.DAL.Migrations
 {
     [DbContext(typeof(WebStoreContext))]
     [Migration("20190831142115_AddIdentity")]

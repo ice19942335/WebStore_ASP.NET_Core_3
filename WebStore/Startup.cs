@@ -13,9 +13,9 @@ using Microsoft.Extensions.Hosting;
 using WebStore._Infrastructure.Implementation;
 using WebStore._Infrastructure.Implementation.InMemory;
 using WebStore._Infrastructure.Interfaces;
-using WebStore.App.DAL.Context;
+using WebStore.DAL.Context;
 using WebStore.Data;
-using WebStore.Domain.Identity;
+using WebStore.Domain.Entities.Identity;
 
 namespace WebStore
 {

@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace WebStore.App.DAL.Migrations
+namespace WebStore.DAL.Migrations
 {
     public partial class AddIdentity : Migration
     {
