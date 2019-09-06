@@ -13,13 +13,17 @@
                             <img src="~/images/shop/@product.ImageUrl" alt="" />
                             <h2>$ @(product.Price)</h2>
                             <p>@product.Name</p>
-                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                            <a asp-area="" asp-controller="Catalog" asp-action="ProductDetails" asp-route-id="@product.Id" class="btn btn-default add-to-cart">
+                                <i class="fa fa-shopping-cart"></i>Add to cart
+                            </a>
                         </div>
                         <div class="product-overlay">
                             <div class="overlay-content">
                                 <h2>$ @(product.Price)</h2>
                                 <p>@product.Name</p>
-                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                <a asp-area="" asp-controller="Catalog" asp-action="ProductDetails" asp-route-id="@product.Id" class="btn btn-default add-to-cart">
+                                    <i class="fa fa-shopping-cart"></i>Add to cart
+                                </a>
                             </div>
                         </div>
                     </div>

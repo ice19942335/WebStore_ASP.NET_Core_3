@@ -1,5 +1,4 @@
-﻿@using System.Collections.Immutable
-@model IEnumerable<WebStore.ViewModels.EmployeeViewModel>
+﻿@model IEnumerable<EmployeeViewModel>
 
 @{
     Layout = "_Layout";
@@ -8,20 +7,33 @@
 
 <H2>@ViewData["Title"]</H2>
 
-<a asp-area="" asp-controller="Employees" asp-action="Edit" class="btn btn-default">Add new</a>
+@if (User.IsInRole("Administrator"))
+{
+    <a asp-area="" asp-controller="Employees" asp-action="Edit" class="btn btn-default">Add new</a>
+}
 
 <hr />
 <table class="table">
     <thead>
         <tr>
             <th scope="col">Id</th>
-            <th scope="col">Edit</th>
+            @{
+                if (User.IsInRole("Administrator"))
+                {
+                    <th scope="col">Edit</th>
+                }
+            }
             <th scope="col">Name</th>
             <th scope="col">Patronymic</th>
             <th scope="col">Sure name</th>
             <th scope="col">Age</th>
             <th scope="col">Details</th>
-            <th scope="col">Delete</th>
+            @{
+                if (User.IsInRole("Administrator"))
+                {
+                    <th scope="col">Delete</th>
+                }
+            }
         </tr>
     </thead>
     <tbody>
@@ -30,13 +42,23 @@
             {
                 <tr>
                     <th scope="row">@employee.Id</th>
-                    <td><a asp-area="" asp-controller="Employees" asp-action="Edit" asp-route-id="@employee.Id"><i class="fa fa-edit"></i></a></td>
+                    @{
+                        if (User.IsInRole("Administrator"))
+                        {
+                            <td><a asp-area="" asp-controller="Employees" asp-action="Edit" asp-route-id="@employee.Id"><i class="fa fa-edit"></i></a></td>
+                        }
+                    }
                     <td>@employee.FirstName</td>
                     <td>@employee.Patronymic</td>
                     <td>@employee.Surname</td>
                     <td>@employee.Age</td>
                     <td><a asp-area="" asp-controller="Employees" asp-action="Details" asp-route-id="@employee.Id">Details</a></td>
-                    <td><a asp-area="" asp-controller="Employees" asp-action="Delete" asp-route-id="@employee.Id"><i class="fa fa-times text-danger"></i></a></td>
+                    @{
+                        if (User.IsInRole("Administrator"))
+                        {
+                            <td><a asp-area="" asp-controller="Employees" asp-action="Delete" asp-route-id="@employee.Id"><i class="fa fa-times text-danger"></i></a></td>
+                        }
+                    }
                 </tr>
             }
         }

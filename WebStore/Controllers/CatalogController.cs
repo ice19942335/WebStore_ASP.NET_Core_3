@@ -33,5 +33,15 @@ namespace WebStore.Controllers
 
             return View(catalogModel);
         }
+
+        public IActionResult ProductDetails(int id)
+        {
+            var product = _productData.GetProductById(id);
+
+            if (product is null)
+                return NotFound();
+
+            return View(product.CreateViewModel());
+        }
     }
 }

@@ -54,6 +54,7 @@ namespace WebStore.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = Domain.Entities.Identity.User.RoleAdmin)]
         public IActionResult Edit(EmployeeViewModel employee)
         {
             if (!ModelState.IsValid) return View(employee);
@@ -80,6 +81,7 @@ namespace WebStore.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [Authorize(Roles = Domain.Entities.Identity.User.RoleAdmin)]
         public IActionResult Delete(int id)
         {
             var employeeToDelete = _employeesData.GetById(id);
