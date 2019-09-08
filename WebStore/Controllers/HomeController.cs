@@ -34,13 +34,9 @@ namespace WebStore.Controllers
             return View(catalogModel);
         }
 
-        public IActionResult ProductDetails() => View();
-
         public IActionResult ContactUs() => View();
 
         public IActionResult CheckOut() => View();
-
-        public IActionResult Cart() => View();
 
         public IActionResult BlogSingle() => View();
 

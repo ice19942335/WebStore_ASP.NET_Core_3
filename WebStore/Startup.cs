@@ -35,6 +35,7 @@ namespace WebStore
             services.AddTransient<WebStoreContextInitializer>();
 
             services.AddScoped<IProductData, SqlProductData>();
+            services.AddScoped<ICartService, CookieCartService>();
             services.AddSingleton<IEmployeesData, InMemoryEmployeesData>();
 
             services.AddIdentity<User, IdentityRole>(options => { /*Cookies configuration can be hire*/ })
