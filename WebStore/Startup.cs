@@ -95,8 +95,8 @@ namespace WebStore
             app.UseAuthorization();  //Should be after "UseRouting" middleware
 
             app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
+            { 
+                //endpoints.MapControllers();
                 endpoints.MapAreaControllerRoute(
                     "admin",
                     "admin",
