@@ -8,9 +8,9 @@
         <li><a href="#"><i class="fa fa-user"></i> @User.Identity.Name</a></li>
         
         @{
-            if (User.IsInRole("Admin"))
+            if (User.IsInRole("Administrator"))
             {
-                <li><a href="#"><i class="fa fa-key"></i> Admin panel</a></li>
+                <li><a asp-area="Admin" asp-controller="Home" asp-action="ProductList"><i class="fa fa-key"></i> Admin panel</a></li>
             }
         }
 

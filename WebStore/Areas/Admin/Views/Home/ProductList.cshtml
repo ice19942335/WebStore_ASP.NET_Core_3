@@ -1,0 +1,63 @@
+﻿@model IEnumerable<WebStore.Domain.Entities.Product>
+@{
+    ViewData["Title"] = "Product list";
+    Layout = "_Layout";
+}
+
+
+
+<div class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <a href="#" class="btn btn-primary btn-round">Add new</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title"> Product list</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class=" text-primary">
+                                <tr>
+                                    <th class="text-center">@Html.DisplayNameFor(product => product.Id)</th>
+                                    <th class="text-center">@Html.DisplayNameFor(product => product.Name)</th>
+                                    <th class="text-center">@Html.DisplayNameFor(product => product.Order)</th>
+                                    <th class="text-center">@Html.DisplayNameFor(product => product.SectionId)</th>
+                                    <th class="text-center">@Html.DisplayNameFor(product => product.BrandId)</th>
+                                    <th class="text-center">@Html.DisplayNameFor(product => product.ImageUrl)</th>
+                                    <th class="text-center">@Html.DisplayNameFor(product => product.Price)</th>
+                                    <th class="text-center">Edit</th>
+                                    <th class="text-center">Details</th>
+                                    <th class="text-center">Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var product in Model)
+                                {
+                                    <tr>
+                                        <td class="text-center">@Html.DisplayFor(p => product.Id)</td>
+                                        <td class="text-center">@Html.DisplayFor(p => product.Name)</td>
+                                        <td class="text-center">@Html.DisplayFor(p => product.Order)</td>
+                                        <td class="text-center">@Html.DisplayFor(p => product.SectionId)</td>
+                                        <td class="text-center">@Html.DisplayFor(p => product.BrandId)</td>
+                                        <td class="text-center">@Html.DisplayFor(p => product.ImageUrl)</td>
+                                        <td class="text-center">@Html.DisplayFor(p => product.Price)</td>
+                                        <td class="text-center"><a href="#"><i class="fa fa-edit"></i></a></td>
+                                        <td class="text-center"><a href="#">Details</a></td>
+                                        <td class="text-center"><a href="#"><i class="fa fa-times text-danger"></i></a></td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
