@@ -1,0 +1,50 @@
+﻿@model OrderViewModel
+
+<form method="post" asp-antiforgery="true" asp-area="" asp-controller="Cart" asp-action="CheckOut">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <input asp-for="Name" placeholder="Full name" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+
+            <input asp-for="Phone" placeholder="Phone" />
+            <span asp-validation-for="Phone" class="text-danger"></span>
+
+            <input asp-for="Address" placeholder="Address" />
+            <span asp-validation-for="Address" class="text-danger"></span>
+        </div>
+
+        @{
+            ViewData.TryGetValue("SumCart", out var sumInfo);
+        }
+
+        <div class="col-sm-6">
+            <div class="total_area2">
+                @if (sumInfo != null)
+                {
+                    var sum = (decimal)sumInfo;
+
+                    <ul>
+                        <li>Shipping Cost <span>Free</span></li>
+                        <li>Total <span>$@sum</span></li>
+                    </ul>
+
+                    if (sum > 0)
+                    {
+                        <input type="submit" value="Check Out" style="
+                                      background: #FE980F;
+                                      border: none;
+                                      border-radius: 0;
+                                      color: #FFFFFF;
+                                      color: #FFFFFF;
+                                      margin: 18px 0 0 0;
+                                      padding: 5px 15px; 
+                                      width: fit-content;"/>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+
+</form>

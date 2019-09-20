@@ -15,6 +15,7 @@ namespace WebStore.Areas.Admin.Controllers
     public class HomeController : Controller
     {
         private readonly IProductData _productData;
+
         public HomeController(IProductData productData) => _productData = productData;
 
         public IActionResult Index()

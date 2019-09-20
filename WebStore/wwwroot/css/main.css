@@ -1701,6 +1701,13 @@ h2.title {
     margin-bottom: 80px;
 }
 
+.total_area2 {
+    border: 1px solid #E6E4DF;
+    color: #696763;
+    padding: 30px 25px 30px 25px;
+    margin-bottom: 80px;
+}
+
 .total_area span {
     float: right;
 }
@@ -1712,13 +1719,26 @@ h2.title {
     padding: 7px 20px;
 }
 
+.total_area2 span {
+    float: right;
+}
+
+.total_area2 ul li {
+    background: #E6E4DF;
+    color: #696763;
+    margin-top: 10px;
+    padding: 7px 20px;
+}
+
+.total_area2 ul {
+    padding: 0;
+}
 
 .user_option label {
     color: #696763;
     font-weight: normal;
     margin-left: 10px;
 }
-
 
 .user_info {
     display: block;
@@ -1748,8 +1768,6 @@ h2.title {
         margin-right: 10px
     }
 
-        .user_info > li > span {
-        }
 
     .user_info input, select, textarea {
         background: #F0F0E9;
@@ -1770,22 +1788,15 @@ h2.title {
     margin-left: 40px;
 }
 
-.update, .check_out {
+.check_out {
     background: #FE980F;
     border-radius: 0;
     color: #FFFFFF;
-    margin-top: 18px;
+    margin: 18px auto 0 auto;
     border: none;
     padding: 5px 15px;
 }
 
-.update {
-    margin-left: 40px;
-}
-
-.check_out {
-    margin-left: 20px
-}
 
 
 

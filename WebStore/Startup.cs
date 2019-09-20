@@ -36,7 +36,9 @@ namespace WebStore
 
             services.AddScoped<IProductData, SqlProductData>();
             services.AddScoped<ICartService, CookieCartService>();
-            services.AddSingleton<IEmployeesData, InMemoryEmployeesData>();
+            services.AddScoped<IOrderService, SqlOrderService>();
+
+            /*To be deleted!*/ services.AddSingleton<IEmployeesData, InMemoryEmployeesData>(); 
 
             services.AddIdentity<User, IdentityRole>(options => { /*Cookies configuration can be hire*/ })
                 .AddEntityFrameworkStores<WebStoreContext>()

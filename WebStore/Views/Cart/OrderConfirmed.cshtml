@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewData["Title"] = "OrderConfirmed";
+}
+
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+        <h1>Thank you! Order confirmed.</h1>
+        <h3>Order ID: @ViewBag.OrderId</h3>
+        <h4>We will email you when your order will be dispatched.</h4>
+        <p>All information about shipping will be attached in email message</p>
+
+        <a asp-area="" asp-controller="Home" asp-action="Index" class="btn btn-default ">Back to site</a>
+    </div>
+</div>
+
