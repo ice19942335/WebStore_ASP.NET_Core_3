@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Linq;
-using System.Threading.Tasks;
-using WebStore.Domain.Entities;
-using WebStore.ViewModels;
+﻿using WebStore.Domain.Entities;
+using WebStore.Domain.ViewModels.Product;
 
-namespace WebStore._Infrastructure.Map
+namespace WebStore.Services.Map
 {
     public static class SectionViewModelMapper
     {

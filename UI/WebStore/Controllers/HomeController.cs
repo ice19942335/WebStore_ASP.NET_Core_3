@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using WebStore._Infrastructure.Interfaces;
-using WebStore._Infrastructure.Map;
 using WebStore.Domain.Entities;
-using WebStore.ViewModels;
+using WebStore.Domain.ViewModels.Catalog;
+using WebStore.Interfaces.Services;
+using WebStore.Services.Map;
 
 namespace WebStore.Controllers
 {

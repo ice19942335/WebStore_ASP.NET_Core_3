@@ -10,12 +10,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using WebStore._Infrastructure.Implementation;
-using WebStore._Infrastructure.Implementation.InMemory;
-using WebStore._Infrastructure.Interfaces;
 using WebStore.DAL.Context;
-using WebStore.Data;
 using WebStore.Domain.Entities.Identity;
+using WebStore.Interfaces.Services;
+using WebStore.Services;
+using WebStore.Services.Data;
+using WebStore.Services.InMemory;
 
 namespace WebStore
 {
