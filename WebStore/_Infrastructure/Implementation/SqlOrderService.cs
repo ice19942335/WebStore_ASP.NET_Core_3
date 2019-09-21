@@ -23,12 +23,12 @@ namespace WebStore._Infrastructure.Implementation
             _userManager = userManager;
         }
 
-        public IEnumerable<Order> GetUserOrders(User user)
+        public IEnumerable<Order> GetUserOrders(string userName)
         {
             return _context.Orders
                 .Include(order => order.User)
                 .Include(order => order.OrderItems)
-                .Where(order => order.User.UserName == user.UserName)
+                .Where(order => order.User.UserName == userName)
                 .ToArray();
         }
 
