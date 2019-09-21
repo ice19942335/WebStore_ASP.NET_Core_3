@@ -44,7 +44,7 @@ namespace WebStore.Services
         {
             var user = await _userManager.FindByNameAsync(userName);
 
-            await using var transaction = _context.Database.BeginTransaction();
+            using var transaction = _context.Database.BeginTransaction();
             //Creating Order entry ------------------------------------------------------------------------------------------------------
             var order = new Order
             {
@@ -77,7 +77,7 @@ namespace WebStore.Services
 
             //Saving changes ------------------------------------------------------------------------------------------------------------
             await _context.SaveChangesAsync();
-            await transaction.CommitAsync();
+            transaction.Commit();
 
             return order;
         }
