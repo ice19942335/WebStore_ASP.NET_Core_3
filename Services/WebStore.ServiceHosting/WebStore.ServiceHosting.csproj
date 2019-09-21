@@ -2,12 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
+    <ApplicationIcon />
+    <OutputType>Exe</OutputType>
+    <StartupObject />
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\Common\WebStore.Domain\WebStore.Domain.csproj" />
-    <ProjectReference Include="..\..\WebStore.Interfaces\WebStore.Interfaces.csproj" />
-    <ProjectReference Include="..\..\WebStore.Services\WebStore.Services.csproj" />
     <ProjectReference Include="..\WebStore.DAL\WebStore.DAL.csproj" />
   </ItemGroup>
 
