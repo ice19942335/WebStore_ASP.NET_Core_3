@@ -11,6 +11,7 @@ namespace WebStore.Domain.ViewModels.Order
         [DataType(DataType.PhoneNumber)]
         public string Phone { get; set; }
 
+        [Required]
         public string Address { get; set; }
     }
 }

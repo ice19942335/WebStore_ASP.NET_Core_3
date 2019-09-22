@@ -11,7 +11,7 @@ using WebStore.Domain.ViewModels.Cart;
 using WebStore.Domain.ViewModels.Order;
 using WebStore.Interfaces.Services;
 
-namespace WebStore.Services
+namespace WebStore.Services.SQL
 {
     public class SqlOrderService : IOrderService
     {

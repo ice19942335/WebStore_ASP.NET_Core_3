@@ -5,7 +5,7 @@ using WebStore.DAL.Context;
 using WebStore.Domain.Entities;
 using WebStore.Interfaces.Services;
 
-namespace WebStore.Services
+namespace WebStore.Services.SQL
 {
     public class SqlProductData : IProductData
     {

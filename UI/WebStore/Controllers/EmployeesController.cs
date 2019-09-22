@@ -65,10 +65,7 @@ namespace WebStore.Controllers
                 if (employeeToEdit is null) 
                     return NotFound();
 
-                employeeToEdit.FirstName = employee.FirstName;
-                employeeToEdit.Patronymic = employee.Patronymic;
-                employeeToEdit.Surname = employee.Surname;
-                employeeToEdit.Age = employee.Age;
+                _employeesData.Update(employee.Id, employee);
             }
             else
             {

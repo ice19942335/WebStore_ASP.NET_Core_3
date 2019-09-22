@@ -10,12 +10,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using WebStore.Clients.Employees;
 using WebStore.DAL.Context;
 using WebStore.Domain.Entities.Identity;
 using WebStore.Interfaces.Services;
 using WebStore.Services;
 using WebStore.Services.Data;
 using WebStore.Services.InMemory;
+using WebStore.Services.SQL;
 
 namespace WebStore
 {
@@ -31,14 +33,17 @@ namespace WebStore
         {
             services.AddMvc();
 
-            services.AddDbContext<WebStoreContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
+            services.AddDbContext<WebStoreContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
             services.AddTransient<WebStoreContextInitializer>();
 
+            services.AddSingleton<IEmployeesData, EmployeesClient>();
+            //services.AddSingleton<IEmployeesData, InMemoryEmployeesData>();
+            //services.AddSingleton<IProductData, InMemoryProductData>();
             services.AddScoped<IProductData, SqlProductData>();
             services.AddScoped<ICartService, CookieCartService>();
             services.AddScoped<IOrderService, SqlOrderService>();
 
-            /*To be deleted!*/ services.AddSingleton<IEmployeesData, InMemoryEmployeesData>(); 
 
             services.AddIdentity<User, IdentityRole>(options => { /*Cookies configuration can be hire*/ })
                 .AddEntityFrameworkStores<WebStoreContext>()
@@ -88,8 +93,6 @@ namespace WebStore
 
             app.UseStaticFiles();
             app.UseDefaultFiles();
-
-            
 
             app.UseRouting();
 
