@@ -10,6 +10,7 @@ namespace WebStore.Services.Map.ViewModel
             model.Id = brand.Id;
             model.Name = brand.Name;
             model.Order = brand.Order;
+            model.ProductsCount = brand.Products.Count;
         }
 
         public static BrandViewModel CreateViewModel(this Brand brand)
