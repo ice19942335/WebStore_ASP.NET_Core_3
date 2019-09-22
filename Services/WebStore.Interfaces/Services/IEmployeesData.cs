@@ -15,8 +15,8 @@ namespace WebStore.Interfaces.Services
 
         Employee Update(int id, Employee employee);
 
-        void SaveChanges();
-
         void Delete(int id);
+
+        void SaveChanges();
     }
 }

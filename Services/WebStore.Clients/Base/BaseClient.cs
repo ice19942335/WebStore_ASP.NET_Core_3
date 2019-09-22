@@ -13,16 +13,15 @@ namespace WebStore.Clients.Base
 {
     public abstract class BaseClient
     {
-        private readonly HttpClient _client;
+        protected readonly HttpClient _client;
 
-        private readonly string _serviceAddress;
+        protected readonly string _serviceAddress;
 
         protected BaseClient(IConfiguration configuration, string serviceAddress)
         {
             _serviceAddress = serviceAddress;
 
             _client = new HttpClient { BaseAddress = new Uri(configuration["ClientAddress"])};
-
             _client.DefaultRequestHeaders.Accept.Clear();
             _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(configuration["ProduceDataType"]));
         }
