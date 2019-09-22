@@ -1,15 +1,19 @@
 ﻿using System.Collections.Generic;
+using WebStore.Domain.Entities;
 using WebStore.Domain.Models;
+using Employee = WebStore.Domain.Models.Employee;
 
 namespace WebStore.Interfaces.Services
 {
     public interface IEmployeesData
     {
-        IEnumerable<EmployeeViewModel> GetAll();
+        IEnumerable<Employee> GetAll();
 
-        EmployeeViewModel GetById(int id);
+        Employee GetById(int id);
 
-        void AddNew(EmployeeViewModel employee);
+        void AddNew(Employee employee);
+
+        Employee Update(int id, Employee employee);
 
         void SaveChanges();
 

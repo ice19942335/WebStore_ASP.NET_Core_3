@@ -20,8 +20,7 @@ namespace WebStore.Clients.Base
             _client = new HttpClient { BaseAddress = new Uri(configuration["ClientAddress"])};
 
             _client.DefaultRequestHeaders.Accept.Clear();
-            _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(configuration["ProduceDataType"]));
         }
-
     }
 }

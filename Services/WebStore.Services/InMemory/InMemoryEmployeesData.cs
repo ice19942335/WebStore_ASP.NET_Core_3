@@ -8,26 +8,46 @@ namespace WebStore.Services.InMemory
 {
     public class InMemoryEmployeesData : IEmployeesData
     {
-        public List<EmployeeViewModel> _employee = new List<EmployeeViewModel>
+        private List<Employee> _employee = new List<Employee>
         {
-            new EmployeeViewModel {Id = 1, FirstName = "Name 1", Patronymic = "Patronymic 1", Surname = "Surname 1", Age = 21},
-            new EmployeeViewModel {Id = 2, FirstName = "Name 2", Patronymic = "Patronymic 2", Surname = "Surname 2", Age = 21},
-            new EmployeeViewModel {Id = 3, FirstName = "Name 3", Patronymic = "Patronymic 3", Surname = "Surname 3", Age = 21},
-            new EmployeeViewModel {Id = 4, FirstName = "Name 4", Patronymic = "Patronymic 4", Surname = "Surname 4", Age = 21}
+            new Employee {Id = 1, FirstName = "Name 1", Patronymic = "Patronymic 1", Surname = "Surname 1", Age = 21},
+            new Employee {Id = 2, FirstName = "Name 2", Patronymic = "Patronymic 2", Surname = "Surname 2", Age = 21},
+            new Employee {Id = 3, FirstName = "Name 3", Patronymic = "Patronymic 3", Surname = "Surname 3", Age = 21},
+            new Employee {Id = 4, FirstName = "Name 4", Patronymic = "Patronymic 4", Surname = "Surname 4", Age = 21}
         };
 
-        public IEnumerable<EmployeeViewModel> GetAll() => _employee;
+        public IEnumerable<Employee> GetAll() => _employee;
 
-        public EmployeeViewModel GetById(int id) => _employee.FirstOrDefault(e => e.Id == id);
+        public Employee GetById(int id) => _employee.FirstOrDefault(e => e.Id == id);
 
-        public void AddNew(EmployeeViewModel employee)
+        public void AddNew(Employee employee)
         {
-            if (employee is null) throw new ArgumentNullException(nameof(employee));
+            if (employee is null) 
+                throw new ArgumentNullException(nameof(employee));
 
-            if (_employee.Contains(employee) || _employee.Any(e => e.Id == employee.Id)) return;
+            if (_employee.Contains(employee) || _employee.Any(e => e.Id == employee.Id)) 
+                return;
 
             employee.Id = _employee.Count == 0 ? 1 : _employee.Max(e => e.Id) + 1;
             _employee.Add(employee);
+        }
+
+        public Employee Update(int id, Employee employee)
+        {
+            if (employee is null) 
+                throw new ArgumentNullException(nameof(employee));
+
+            var dbEmployee = GetById(id);
+
+            if(dbEmployee is null)
+                throw new InvalidOperationException($"Employee with ID: {id} not found");
+
+            dbEmployee.FirstName = employee.FirstName;
+            dbEmployee.Patronymic = employee.Patronymic;
+            dbEmployee.Surname = employee.Surname;
+            dbEmployee.Age = employee.Age;
+
+            return dbEmployee;
         }
 
         public void Delete(int id)
