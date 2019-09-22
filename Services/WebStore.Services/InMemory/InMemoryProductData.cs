@@ -1,8 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using WebStore.Domain.DTO.Product;
 using WebStore.Domain.Entities;
+using WebStore.Domain.Entities.Product;
 using WebStore.Interfaces.Services;
 using WebStore.Services.Data;
+using WebStore.Services.Map.DTO;
 
 namespace WebStore.Services.InMemory
 {
@@ -12,11 +15,11 @@ namespace WebStore.Services.InMemory
 
         public IEnumerable<Brand> GetBrands() => InitializationData.Brands;
 
-        public IEnumerable<Product> GetProducts(ProductFilter filter)
+        public IEnumerable<ProductDTO> GetProducts(ProductFilter filter)
         {
             IEnumerable<Product> products = InitializationData.Products;
 
-            if (filter is null) return products;
+            if (filter is null) return products.Select(product => product.CreateProductDTO());
 
             if (filter.BrandId != null)
                 products = products.Where(product => product.BrandId == filter.BrandId);
@@ -24,9 +27,14 @@ namespace WebStore.Services.InMemory
             if (filter.SectionId != null)
                 products = products.Where(product => product.SectionId == filter.SectionId);
 
-            return products;
+            return products.Select(product => product.CreateProductDTO());
         }
 
-        public Product GetProductById(int id) => InitializationData.Products.FirstOrDefault(product => product.Id == id);
+        public ProductDTO GetProductById(int id)
+        {
+            var product = InitializationData.Products.FirstOrDefault(product => product.Id == id);
+
+            return product?.CreateProductDTO();
+        }
     }
 }

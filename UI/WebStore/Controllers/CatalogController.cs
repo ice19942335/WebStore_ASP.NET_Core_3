@@ -4,9 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using WebStore.Domain.Entities;
+using WebStore.Domain.Entities.Product;
 using WebStore.Domain.ViewModels.Catalog;
 using WebStore.Interfaces.Services;
 using WebStore.Services.Map;
+using WebStore.Services.Map.DTO;
 
 namespace WebStore.Controllers
 {
@@ -28,7 +30,8 @@ namespace WebStore.Controllers
             {
                 BrandId = brandId,
                 SectionId = sectionId,
-                Products = products.Select(product => product.CreateViewModel())
+                Products = products
+                    .Select(product => product.CreateProduct().CreateViewModel())
             };
 
             return View(catalogModel);
@@ -41,7 +44,7 @@ namespace WebStore.Controllers
             if (product is null)
                 return NotFound();
 
-            return View(product.CreateViewModel());
+            return View(product.CreateProduct().CreateViewModel());
         }
     }
 }

@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Text;
 using WebStore.Domain.Entities.Base;
 using WebStore.Domain.Entities.Identity;
 
-namespace WebStore.Domain.Entities
+namespace WebStore.Domain.Entities.Order
 {
     public class Order : NamedEntity
     {

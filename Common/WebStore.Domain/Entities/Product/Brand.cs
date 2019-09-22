@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 using WebStore.Domain.Entities.Base;
 using WebStore.Domain.Entities.Base.Interfaces;
 
-namespace WebStore.Domain.Entities
+namespace WebStore.Domain.Entities.Product
 {
     /// <summary>Brand</summary>
     [Table("Brands")]

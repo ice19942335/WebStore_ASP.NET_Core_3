@@ -1,7 +1,7 @@
-﻿using WebStore.Domain.Entities;
+﻿using WebStore.Domain.Entities.Product;
 using WebStore.Domain.ViewModels.Product;
 
-namespace WebStore.Services.Map
+namespace WebStore.Services.Map.ViewModel
 {
     public static class BrandViewModelMapper
     {

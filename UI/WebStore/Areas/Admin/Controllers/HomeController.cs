@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebStore.Domain.Entities;
+using WebStore.Domain.Entities.Product;
 using WebStore.Interfaces.Services;
 
 namespace WebStore.Areas.Admin.Controllers

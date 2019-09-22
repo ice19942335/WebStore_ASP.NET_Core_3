@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using WebStore.Domain.Entities;
+using WebStore.Domain.Entities.Order;
 using WebStore.Domain.ViewModels.Cart;
 using WebStore.Domain.ViewModels.Order;
 

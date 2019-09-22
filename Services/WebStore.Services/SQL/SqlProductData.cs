@@ -1,9 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using Remotion.Linq.Clauses;
 using WebStore.DAL.Context;
+using WebStore.Domain.DTO.Product;
 using WebStore.Domain.Entities;
+using WebStore.Domain.Entities.Product;
 using WebStore.Interfaces.Services;
+using WebStore.Services.Map;
+using WebStore.Services.Map.DTO;
 
 namespace WebStore.Services.SQL
 {
@@ -23,12 +28,12 @@ namespace WebStore.Services.SQL
                 .Include(b => b.Products)
                 .AsEnumerable();
 
-        public IEnumerable<Product> GetProducts(ProductFilter filter)
+        public IEnumerable<ProductDTO> GetProducts(ProductFilter filter)
         {
             IQueryable<Product> products = _context.Products;
 
             if (filter is null)
-                return products;
+                return products.AsEnumerable().Select(p => p.CreateProductDTO());
 
             if (filter.SectionId != null)
                 products = products.Where(product => product.SectionId == filter.SectionId);
@@ -36,13 +41,17 @@ namespace WebStore.Services.SQL
             if (filter.BrandId != null)
                 products = products.Where(product => product.BrandId == filter.BrandId);
 
-            return products.AsEnumerable();
+            return products.AsEnumerable().Select(p => p.CreateProductDTO());
         }
 
-        public Product GetProductById(int id) => 
-            _context.Products
+        public ProductDTO GetProductById(int id)
+        {
+            var product = _context.Products
                 .Include(product => product.Brand)
                 .Include(product => product.Section)
                 .FirstOrDefault(product => product.Id == id);
+
+            return product?.CreateProductDTO();
+        }
     }
 }

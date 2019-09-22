@@ -1,4 +1,4 @@
-﻿@model IEnumerable<WebStore.Domain.Entities.Product>
+﻿@model IEnumerable<ProductDTO>
 @{
     ViewData["Title"] = "Product list";
     Layout = "_Layout";
@@ -25,8 +25,8 @@
                                     <th class="text-center">@Html.DisplayNameFor(product => product.Id)</th>
                                     <th class="text-center">@Html.DisplayNameFor(product => product.Name)</th>
                                     <th class="text-center">@Html.DisplayNameFor(product => product.Order)</th>
-                                    <th class="text-center">@Html.DisplayNameFor(product => product.SectionId)</th>
-                                    <th class="text-center">@Html.DisplayNameFor(product => product.BrandId)</th>
+                                    @*<th class="text-center">@Html.DisplayNameFor(product => product.SectionId)</th>
+                                    <th class="text-center">@Html.DisplayNameFor(product => product.BrandId)</th>*@
                                     <th class="text-center">@Html.DisplayNameFor(product => product.ImageUrl)</th>
                                     <th class="text-center">@Html.DisplayNameFor(product => product.Price)</th>
                                     <th class="text-center">Edit</th>
@@ -41,8 +41,8 @@
                                         <td class="text-center">@Html.DisplayFor(p => product.Id)</td>
                                         <td class="text-center">@Html.DisplayFor(p => product.Name)</td>
                                         <td class="text-center">@Html.DisplayFor(p => product.Order)</td>
-                                        <td class="text-center">@Html.DisplayFor(p => product.SectionId)</td>
-                                        <td class="text-center">@Html.DisplayFor(p => product.BrandId)</td>
+                                        @*<td class="text-center">@Html.DisplayFor(p => product.SectionId)</td>
+                                        <td class="text-center">@Html.DisplayFor(p => product.BrandId)</td>*@
                                         <td class="text-center">@Html.DisplayFor(p => product.ImageUrl)</td>
                                         <td class="text-center">@Html.DisplayFor(p => product.Price)</td>
                                         <td class="text-center"><a href="#"><i class="fa fa-edit"></i></a></td>

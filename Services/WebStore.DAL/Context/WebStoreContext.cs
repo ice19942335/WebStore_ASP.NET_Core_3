@@ -2,6 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 using WebStore.Domain.Entities;
 using WebStore.Domain.Entities.Identity;
+using WebStore.Domain.Entities.Order;
+using WebStore.Domain.Entities.Product;
 
 namespace WebStore.DAL.Context
 {

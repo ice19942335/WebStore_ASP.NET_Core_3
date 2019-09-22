@@ -3,10 +3,12 @@ using System.Linq;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 using WebStore.Domain.Entities;
+using WebStore.Domain.Entities.Product;
 using WebStore.Domain.Models;
 using WebStore.Domain.ViewModels.Cart;
 using WebStore.Interfaces.Services;
 using WebStore.Services.Map;
+using WebStore.Services.Map.DTO;
 
 namespace WebStore.Services
 {
@@ -128,7 +130,7 @@ namespace WebStore.Services
                 Ids = Cart.Items.Select(item => item.ProductId).ToList()
             });
 
-            var productViewModels = products.Select(p => p.CreateViewModel());
+            var productViewModels = products.Select(p => p.CreateProduct().CreateViewModel());
 
             return new CartViewModel
             {
