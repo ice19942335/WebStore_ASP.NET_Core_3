@@ -22,9 +22,9 @@ namespace WebStore.Clients.Products
             return Get<List<Section>>($"{_serviceAddress}/sections");
         }
 
-        public IEnumerable<Brand> GetBrands()
+        public IEnumerable<BrandDTO> GetBrands()
         {
-            return Get<List<Brand>>($"{_serviceAddress}/brands");
+            return Get<List<BrandDTO>>($"{_serviceAddress}/brands");
         }
 
         public IEnumerable<ProductDTO> GetProducts(ProductFilter filter)

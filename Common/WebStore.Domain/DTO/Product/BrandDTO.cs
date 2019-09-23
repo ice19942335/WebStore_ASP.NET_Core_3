@@ -12,5 +12,8 @@ namespace WebStore.Domain.DTO.Product
 
         public string Name { get; set; }
 
+        public int Order { get; set; }
+
+        public ICollection<ProductDTO> Products { get; set; } = new List<ProductDTO>();
     }
 }

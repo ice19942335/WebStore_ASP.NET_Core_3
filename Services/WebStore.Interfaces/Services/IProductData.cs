@@ -10,7 +10,7 @@ namespace WebStore.Interfaces.Services
     {
         IEnumerable<Section> GetSections();
 
-        IEnumerable<Brand> GetBrands();
+        IEnumerable<BrandDTO> GetBrands();
 
         IEnumerable<ProductDTO> GetProducts(ProductFilter filter);
 

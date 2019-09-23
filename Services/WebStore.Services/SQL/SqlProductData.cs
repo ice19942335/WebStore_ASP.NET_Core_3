@@ -23,9 +23,10 @@ namespace WebStore.Services.SQL
                 .Include(s => s.Products)
                 .AsEnumerable();
 
-        public IEnumerable<Brand> GetBrands() =>
+        public IEnumerable<BrandDTO> GetBrands() =>
             _context.Brands
                 .Include(b => b.Products)
+                .Select(brand => brand.CreateBrandDTO())
                 .AsEnumerable();
 
         public IEnumerable<ProductDTO> GetProducts(ProductFilter filter)

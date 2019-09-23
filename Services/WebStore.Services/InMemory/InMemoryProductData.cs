@@ -13,7 +13,7 @@ namespace WebStore.Services.InMemory
     {
         public IEnumerable<Section> GetSections() => InitializationData.Sections;
 
-        public IEnumerable<Brand> GetBrands() => InitializationData.Brands;
+        public IEnumerable<BrandDTO> GetBrands() => InitializationData.Brands.Select(brand => brand.CreateBrandDTO());
 
         public IEnumerable<ProductDTO> GetProducts(ProductFilter filter)
         {

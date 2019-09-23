@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using WebStore.Domain.ViewModels.Product;
 using WebStore.Interfaces.Services;
 using WebStore.Services.Map;
+using WebStore.Services.Map.DTO;
 using WebStore.Services.Map.ViewModel;
 
 namespace WebStore.Components
@@ -27,7 +28,8 @@ namespace WebStore.Components
         {
             var brands = _productData.GetBrands();
 
-            return brands.Select(brand => brand.CreateViewModel());
+            return brands.Select(brand => brand.CreateBrand())
+                .Select(brand => brand.CreateViewModel());
         }
     }
 }
