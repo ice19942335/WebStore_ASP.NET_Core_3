@@ -43,6 +43,7 @@ namespace WebStore.Clients.Base
 
         protected HttpResponseMessage Post<T>(string url, T item) => PostAsync(url, item).Result;
 
+
         protected async Task<HttpResponseMessage> PutAsync<T>(string url, T item, CancellationToken cancellationToken = default)
         {
             return (await _client.PutAsJsonAsync(url, item, cancellationToken)).EnsureSuccessStatusCode();

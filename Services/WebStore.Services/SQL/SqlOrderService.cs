@@ -5,12 +5,15 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using WebStore.DAL.Context;
+using WebStore.Domain.DTO.Order;
 using WebStore.Domain.Entities;
 using WebStore.Domain.Entities.Identity;
 using WebStore.Domain.Entities.Order;
+using WebStore.Domain.Models;
 using WebStore.Domain.ViewModels.Cart;
 using WebStore.Domain.ViewModels.Order;
 using WebStore.Interfaces.Services;
+using WebStore.Services.Map.DTO;
 
 namespace WebStore.Services.SQL
 {
@@ -25,62 +28,64 @@ namespace WebStore.Services.SQL
             _userManager = userManager;
         }
 
-        public IEnumerable<Order> GetUserOrders(string userName)
+        public IEnumerable<OrderDTO> GetUserOrders(string userName)
         {
             return _context.Orders
                 .Include(order => order.User)
                 .Include(order => order.OrderItems)
                 .Where(order => order.User.UserName == userName)
+                .Select(order => order.CreateOrderDTO())
                 .ToArray();
         }
 
-        public Order GetOrderById(int id)
+        public OrderDTO GetOrderById(int id)
         {
             return _context.Orders
                 .Include(order => order.OrderItems)
-                .FirstOrDefault(order => order.Id == id);
+                .FirstOrDefault(order => order.Id == id)
+                .CreateOrderDTO();
         }
 
-        public async Task<Order> CreateOrder(OrderViewModel orderModel, CartViewModel cartModel, string userName)
+        public OrderDTO CreateOrder(OrderModel orderModel, string userName)
         {
-            var user = await _userManager.FindByNameAsync(userName);
+            var user = _userManager.FindByNameAsync(userName).Result;
 
             using var transaction = _context.Database.BeginTransaction();
             //Creating Order entry ------------------------------------------------------------------------------------------------------
             var order = new Order
             {
-                Name = orderModel.Name,
-                Address = orderModel.Address,
-                Phone = orderModel.Phone,
+                Name = orderModel.OrderViewModel.Name,
+                Address = orderModel.OrderViewModel.Address,
+                Phone = orderModel.OrderViewModel.Phone,
                 User = user,
                 Date = DateTime.Now
             };
 
-            await _context.Orders.AddAsync(order);
+            _context.Orders.Add(order);
 
             //Creating OrderItems entry -------------------------------------------------------------------------------------------------
-            foreach (var (productViewModel, quantity) in cartModel.Items)
+            foreach (var orderItemDTO in orderModel.OrderItems)
             {
-                var product = await _context.Products.FirstOrDefaultAsync(p => p.Id == productViewModel.Id);
+                var product = _context.Products.FirstOrDefault(p => p.Id == orderItemDTO.Id);
                 if(product is null)
-                    throw  new InvalidOperationException($"Product in database with ID: {productViewModel.Id} not found");
+                    throw  new InvalidOperationException($"Product in database with ID: {orderItemDTO.Id} not found");
 
                 var orderItem = new OrderItem
                 {
                     Order = order,
                     Price = product.Price,
-                    Quantity = quantity,
+                    Quantity = orderItemDTO.Quantity,
                     Product = product
                 };
 
-                await _context.OrderItems.AddAsync(orderItem);
+                _context.OrderItems.Add(orderItem);
             }
 
             //Saving changes ------------------------------------------------------------------------------------------------------------
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
             transaction.Commit();
 
-            return order;
+            return order.CreateOrderDTO();
         }
     }
 }

@@ -18,25 +18,25 @@ namespace WebStore.Services
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly string _cartName;
 
-        private Cart Cart
+        private CartModel Cart
         {
             get
             {
                 var httpContext = _httpContextAccessor.HttpContext;
                 var cookie = httpContext.Request.Cookies[_cartName];
 
-                Cart cart = null;
+                CartModel cart = null;
 
                 if (cookie is null)
                 {
-                    cart = new Cart();
+                    cart = new CartModel();
                     httpContext.Response.Cookies.Append(
                             _cartName, 
                             JsonConvert.SerializeObject(cart));
                 }
                 else
                 {
-                    cart = JsonConvert.DeserializeObject<Cart>(cookie);
+                    cart = JsonConvert.DeserializeObject<CartModel>(cookie);
                     httpContext.Response.Cookies.Delete(_cartName);
                     httpContext.Response.Cookies.Append(_cartName, cookie, new CookieOptions
                     {
@@ -118,7 +118,7 @@ namespace WebStore.Services
             if (cartItem != null)
                 cartItem.Quantity++;
             else
-                cart.Items.Add(new CartItem {ProductId = id, Quantity = 1});
+                cart.Items.Add(new CartItemModel {ProductId = id, Quantity = 1});
 
             Cart = cart;
         }

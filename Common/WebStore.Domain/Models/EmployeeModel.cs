@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebStore.Domain.Models
 {
-    public class Employee
+    public class EmployeeModel
     {
         [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }

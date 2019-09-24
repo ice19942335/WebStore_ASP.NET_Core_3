@@ -11,8 +11,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using WebStore.Clients.Employees;
+using WebStore.Clients.Orders;
+using WebStore.Clients.Products;
 using WebStore.DAL.Context;
 using WebStore.Domain.Entities.Identity;
+using WebStore.Domain.Entities.Product;
 using WebStore.Interfaces.Services;
 using WebStore.Services;
 using WebStore.Services.Data;
@@ -38,11 +41,9 @@ namespace WebStore
             services.AddTransient<WebStoreContextInitializer>();
 
             services.AddSingleton<IEmployeesData, EmployeesClient>();
-            //services.AddSingleton<IEmployeesData, InMemoryEmployeesData>();
-            //services.AddSingleton<IProductData, InMemoryProductData>();
-            services.AddScoped<IProductData, SqlProductData>();
+            services.AddScoped<IProductData, ProductsClient>();
+            services.AddScoped<IOrderService, OrdersClient>();
             services.AddScoped<ICartService, CookieCartService>();
-            services.AddScoped<IOrderService, SqlOrderService>();
 
 
             services.AddIdentity<User, IdentityRole>(options => { /*Cookies configuration can be hire*/ })

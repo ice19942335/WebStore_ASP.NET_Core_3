@@ -3,9 +3,9 @@ using System.Linq;
 
 namespace WebStore.Domain.Models
 {
-    public class Cart
+    public class CartModel
     {
-        public List<CartItem> Items { get; set; } = new List<CartItem>();
+        public List<CartItemModel> Items { get; set; } = new List<CartItemModel>();
 
         public int ItemsCount => Items?.Sum(item => item.Quantity) ?? 0;
     }

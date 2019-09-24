@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 using WebStore.Domain.Entities;
+using WebStore.Domain.Entities.Base;
+using WebStore.Domain.Entities.Base.Interfaces;
 
 namespace WebStore.Domain.DTO.Product
 {
-    public class BrandDTO
+    public class BrandDTO : BaseEntity, INamedEntity
     {
         public int Id { get; set; }
 

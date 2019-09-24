@@ -37,7 +37,7 @@ namespace WebStore.Controllers
         [Authorize(Roles = Domain.Entities.Identity.User.RoleAdmin)]
         public IActionResult Edit(int? id)
         {
-            Employee employee;
+            EmployeeModel employee;
             if (id != null)
             {
                 employee = _employeesData.GetById((int)id);
@@ -46,7 +46,7 @@ namespace WebStore.Controllers
             }
             else
             {
-                employee = new Employee();
+                employee = new EmployeeModel();
             }
 
             return View(employee);
@@ -54,7 +54,7 @@ namespace WebStore.Controllers
 
         [HttpPost]
         [Authorize(Roles = Domain.Entities.Identity.User.RoleAdmin)]
-        public IActionResult Edit(Employee employee)
+        public IActionResult Edit(EmployeeModel employee)
         {
             if (!ModelState.IsValid) return View(employee);
 

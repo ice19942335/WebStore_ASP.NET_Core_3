@@ -8,19 +8,19 @@ namespace WebStore.Services.InMemory
 {
     public class InMemoryEmployeesData : IEmployeesData
     {
-        private List<Employee> _employee = new List<Employee>
+        private List<EmployeeModel> _employee = new List<EmployeeModel>
         {
-            new Employee {Id = 1, FirstName = "Name 1", Patronymic = "Patronymic 1", Surname = "Surname 1", Age = 21},
-            new Employee {Id = 2, FirstName = "Name 2", Patronymic = "Patronymic 2", Surname = "Surname 2", Age = 21},
-            new Employee {Id = 3, FirstName = "Name 3", Patronymic = "Patronymic 3", Surname = "Surname 3", Age = 21},
-            new Employee {Id = 4, FirstName = "Name 4", Patronymic = "Patronymic 4", Surname = "Surname 4", Age = 21}
+            new EmployeeModel {Id = 1, FirstName = "Name 1", Patronymic = "Patronymic 1", Surname = "Surname 1", Age = 21},
+            new EmployeeModel {Id = 2, FirstName = "Name 2", Patronymic = "Patronymic 2", Surname = "Surname 2", Age = 21},
+            new EmployeeModel {Id = 3, FirstName = "Name 3", Patronymic = "Patronymic 3", Surname = "Surname 3", Age = 21},
+            new EmployeeModel {Id = 4, FirstName = "Name 4", Patronymic = "Patronymic 4", Surname = "Surname 4", Age = 21}
         };
 
-        public IEnumerable<Employee> GetAll() => _employee;
+        public IEnumerable<EmployeeModel> GetAll() => _employee;
 
-        public Employee GetById(int id) => _employee.FirstOrDefault(e => e.Id == id);
+        public EmployeeModel GetById(int id) => _employee.FirstOrDefault(e => e.Id == id);
 
-        public void AddNew(Employee employee)
+        public void AddNew(EmployeeModel employee)
         {
             if (employee is null) 
                 throw new ArgumentNullException(nameof(employee));
@@ -32,7 +32,7 @@ namespace WebStore.Services.InMemory
             _employee.Add(employee);
         }
 
-        public Employee Update(int id, Employee employee)
+        public EmployeeModel Update(int id, EmployeeModel employee)
         {
             if (employee is null) 
                 throw new ArgumentNullException(nameof(employee));

@@ -11,7 +11,7 @@ using WebStore.Interfaces.Services;
 
 namespace WebStore.Clients.Products
 {
-    class ProductsClient : BaseClient, IProductData
+    public class ProductsClient : BaseClient, IProductData
     {
         public ProductsClient(IConfiguration configuration) : base(configuration, "api/products")
         {

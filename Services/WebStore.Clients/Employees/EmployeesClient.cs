@@ -13,25 +13,25 @@ namespace WebStore.Clients.Employees
     {
         public EmployeesClient(IConfiguration configuration) : base(configuration, "api/employees") { }
 
-        public IEnumerable<Employee> GetAll()
+        public IEnumerable<EmployeeModel> GetAll()
         {
-            return Get<List<Employee>>(_serviceAddress);
+            return Get<List<EmployeeModel>>(_serviceAddress);
         }
 
-        public Employee GetById(int id)
+        public EmployeeModel GetById(int id)
         {
-            return Get<Employee>($"{_serviceAddress}/{id}");
+            return Get<EmployeeModel>($"{_serviceAddress}/{id}");
         }
 
-        public void AddNew(Employee employee)
+        public void AddNew(EmployeeModel employee)
         {
             Post(_serviceAddress, employee);
         }
 
-        public Employee Update(int id, Employee employee)
+        public EmployeeModel Update(int id, EmployeeModel employee)
         {
             var response = Put($"{_serviceAddress}/{id}", employee);
-            return response.Content.ReadAsAsync<Employee>().Result;
+            return response.Content.ReadAsAsync<EmployeeModel>().Result;
         }
 
         public void Delete(int id)

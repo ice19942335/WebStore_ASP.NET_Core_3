@@ -19,25 +19,25 @@ namespace WebStore.ServiceHosting.Controllers
         public EmployeesController(IEmployeesData employeesData) => _employeesData = employeesData;
 
         [HttpGet, ActionName("Get")]
-        public IEnumerable<Employee> GetAll()
+        public IEnumerable<EmployeeModel> GetAll()
         {
             return _employeesData.GetAll();
         }
 
         [HttpGet("{id}"), ActionName("Get")]
-        public Employee GetById(int id)
+        public EmployeeModel GetById(int id)
         {
             return _employeesData.GetById(id);
         }
 
         [HttpPost, ActionName("Post")]
-        public void AddNew([FromBody] Employee employee)
+        public void AddNew([FromBody] EmployeeModel employee)
         {
             _employeesData.AddNew(employee);
         }
 
         [HttpPut("{id}"), ActionName("Put")]
-        public Employee Update(int id, [FromBody] Employee employee)
+        public EmployeeModel Update(int id, [FromBody] EmployeeModel employee)
         {
            return _employeesData.Update(id, employee);
         }

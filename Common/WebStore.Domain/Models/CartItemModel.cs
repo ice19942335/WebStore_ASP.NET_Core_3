@@ -1,6 +1,6 @@
 ﻿namespace WebStore.Domain.Models
 {
-    public class CartItem
+    public class CartItemModel
     {
         public int ProductId { get; set; }
 
