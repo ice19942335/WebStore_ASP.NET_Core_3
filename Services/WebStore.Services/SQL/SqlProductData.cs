@@ -18,9 +18,10 @@ namespace WebStore.Services.SQL
 
         public SqlProductData(WebStoreContext context) => _context = context;
 
-        public IEnumerable<Section> GetSections() =>
+        public IEnumerable<SectionDTO> GetSections() =>
             _context.Sections
                 .Include(s => s.Products)
+                .Select(section => section.CreateSectionDTO())
                 .AsEnumerable();
 
         public IEnumerable<BrandDTO> GetBrands() =>

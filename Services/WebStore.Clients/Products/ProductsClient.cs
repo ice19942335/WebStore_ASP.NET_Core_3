@@ -17,9 +17,9 @@ namespace WebStore.Clients.Products
         {
         }
 
-        public IEnumerable<Section> GetSections()
+        public IEnumerable<SectionDTO> GetSections()
         {
-            return Get<List<Section>>($"{_serviceAddress}/sections");
+            return Get<List<SectionDTO>>($"{_serviceAddress}/sections");
         }
 
         public IEnumerable<BrandDTO> GetBrands()

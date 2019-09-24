@@ -8,7 +8,7 @@ namespace WebStore.Interfaces.Services
     /// <summary>Product service</summary>
     public interface IProductData
     {
-        IEnumerable<Section> GetSections();
+        IEnumerable<SectionDTO> GetSections();
 
         IEnumerable<BrandDTO> GetBrands();
 

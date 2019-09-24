@@ -19,7 +19,7 @@ namespace WebStore.ServiceHosting.Controllers
         public ProductsController(IProductData productData) => _productData = productData;
 
         [HttpGet("sections")]
-        public IEnumerable<Section> GetSections()
+        public IEnumerable<SectionDTO> GetSections()
         {
             return _productData.GetSections();
         }

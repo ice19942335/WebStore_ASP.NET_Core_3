@@ -11,7 +11,7 @@ namespace WebStore.Services.InMemory
 {
     public class InMemoryProductData : IProductData
     {
-        public IEnumerable<Section> GetSections() => InitializationData.Sections;
+        public IEnumerable<SectionDTO> GetSections() => InitializationData.Sections.Select(section => section.CreateSectionDTO());
 
         public IEnumerable<BrandDTO> GetBrands() => InitializationData.Brands.Select(brand => brand.CreateBrandDTO());
 
