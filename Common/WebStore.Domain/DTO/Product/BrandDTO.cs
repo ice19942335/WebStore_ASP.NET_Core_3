@@ -10,8 +10,6 @@ namespace WebStore.Domain.DTO.Product
 {
     public class BrandDTO : BaseEntity, INamedEntity
     {
-        public int Id { get; set; }
-
         public string Name { get; set; }
 
         public int Order { get; set; }
