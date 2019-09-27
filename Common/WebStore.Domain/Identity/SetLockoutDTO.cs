@@ -4,6 +4,7 @@ namespace WebStore.Domain.Identity
 {
     public class SetLockoutDTO : UserInfoDTO
     {
-        public DateTimeOffset? Lockout { get; set; }
+        public DateTimeOffset? LockoutStart { get; set; }
+        public DateTimeOffset? LockoutEnd { get; set; }
     }
 }
