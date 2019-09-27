@@ -39,22 +39,6 @@ namespace WebStore.ServiceHosting
                 .AddEntityFrameworkStores<WebStoreContext>()
                 .AddDefaultTokenProviders();
 
-            services.Configure<IdentityOptions>(cfg =>
-            {
-                cfg.Password.RequireDigit = false;
-                cfg.Password.RequireLowercase = false;
-                cfg.Password.RequireNonAlphanumeric = false;
-                cfg.Password.RequireUppercase = false;
-                cfg.Password.RequiredLength = 8;
-                cfg.Password.RequiredUniqueChars = 3;
-
-                cfg.Lockout.MaxFailedAccessAttempts = 10;
-                cfg.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(30);
-                cfg.Lockout.AllowedForNewUsers = true;
-
-                cfg.User.RequireUniqueEmail = false; //.....................................    Грабли
-            });
-
             services.AddSingleton<IEmployeesData, InMemoryEmployeesData>();
 
             services.AddScoped<IProductData, SqlProductData>();

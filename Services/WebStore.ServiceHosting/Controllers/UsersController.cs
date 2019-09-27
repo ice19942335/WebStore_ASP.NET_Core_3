@@ -132,7 +132,7 @@ namespace WebStore.ServiceHosting.Controllers
 
         #endregion
 
-        #region Двухфакторная авторизация
+        #region TwoFactor authentication
 
         [HttpPost("GetTwoFactorEnabled")]
         public async Task<bool> GetTwoFactorEnabledAsync([FromBody] User user) => await _userStore.GetTwoFactorEnabledAsync(user);

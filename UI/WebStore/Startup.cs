@@ -13,6 +13,7 @@ using Microsoft.Extensions.Hosting;
 using WebStore.Clients.Employees;
 using WebStore.Clients.Orders;
 using WebStore.Clients.Products;
+using WebStore.Clients.Users;
 using WebStore.DAL.Context;
 using WebStore.Domain.Entities.Identity;
 using WebStore.Domain.Entities.Product;
@@ -36,19 +37,28 @@ namespace WebStore
         {
             services.AddMvc();
 
-            services.AddDbContext<WebStoreContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
-            services.AddTransient<WebStoreContextInitializer>();
-
             services.AddSingleton<IEmployeesData, EmployeesClient>();
             services.AddScoped<IProductData, ProductsClient>();
             services.AddScoped<IOrderService, OrdersClient>();
             services.AddScoped<ICartService, CookieCartService>();
 
-
             services.AddIdentity<User, IdentityRole>(options => { /*Cookies configuration can be hire*/ })
-                .AddEntityFrameworkStores<WebStoreContext>()
                 .AddDefaultTokenProviders();
+
+            #region Identity - self-made store implementation based on WebAPI
+
+            services.AddTransient<IUserStore<User>, UserClient>();
+            services.AddTransient<IUserClaimStore<User>, UserClient>();
+            services.AddTransient<IUserPasswordStore<User>, UserClient>();
+            services.AddTransient<IUserTwoFactorStore<User>, UserClient>();
+            services.AddTransient<IUserEmailStore<User>, UserClient>();
+            services.AddTransient<IUserPhoneNumberStore<User>, UserClient>();
+            services.AddTransient<IUserLoginStore<User>, UserClient>();
+            services.AddTransient<IUserLockoutStore<User>, UserClient>();
+
+            services.AddTransient<IRoleStore<IdentityRole>, RoleClient>();
+
+            #endregion
 
             services.Configure<IdentityOptions>(cfg =>
             {
@@ -83,10 +93,8 @@ namespace WebStore
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, WebStoreContextInitializer dbInitializer)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            dbInitializer.InitializeAsync().Wait();
-
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
