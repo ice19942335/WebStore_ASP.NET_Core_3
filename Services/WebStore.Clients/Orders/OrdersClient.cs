@@ -18,17 +18,17 @@ namespace WebStore.Clients.Orders
 
         public IEnumerable<OrderDTO> GetUserOrders(string userName)
         {
-            return Get<List<OrderDTO>>($"{_serviceAddress}/user/{userName}");
+            return Get<List<OrderDTO>>($"{_ServiceAddress}/user/{userName}");
         }
 
         public OrderDTO GetOrderById(int id)
         {
-            return Get<OrderDTO>($"{_serviceAddress}/{id}");
+            return Get<OrderDTO>($"{_ServiceAddress}/{id}");
         }
 
         public OrderDTO CreateOrder(OrderModel orderModel, string userName)
         {
-            var response = Post($"{_serviceAddress}/{userName}", orderModel);
+            var response = Post($"{_ServiceAddress}/{userName}", orderModel);
             return response.Content.ReadAsAsync<OrderDTO>().Result;
         }
     }

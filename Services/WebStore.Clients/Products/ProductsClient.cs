@@ -19,23 +19,23 @@ namespace WebStore.Clients.Products
 
         public IEnumerable<SectionDTO> GetSections()
         {
-            return Get<List<SectionDTO>>($"{_serviceAddress}/sections");
+            return Get<List<SectionDTO>>($"{_ServiceAddress}/sections");
         }
 
         public IEnumerable<BrandDTO> GetBrands()
         {
-            return Get<List<BrandDTO>>($"{_serviceAddress}/brands");
+            return Get<List<BrandDTO>>($"{_ServiceAddress}/brands");
         }
 
         public IEnumerable<ProductDTO> GetProducts(ProductFilter filter)
         {
-            var response = Post(_serviceAddress, filter);
+            var response = Post(_ServiceAddress, filter);
             return response.Content.ReadAsAsync<IEnumerable<ProductDTO>>().Result;
         }
 
         public ProductDTO GetProductById(int id)
         {
-            return Get<ProductDTO>($"{_serviceAddress}/{id}");
+            return Get<ProductDTO>($"{_ServiceAddress}/{id}");
         }
     }
 }

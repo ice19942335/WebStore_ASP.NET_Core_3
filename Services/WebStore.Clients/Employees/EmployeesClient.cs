@@ -15,28 +15,28 @@ namespace WebStore.Clients.Employees
 
         public IEnumerable<EmployeeModel> GetAll()
         {
-            return Get<List<EmployeeModel>>(_serviceAddress);
+            return Get<List<EmployeeModel>>(_ServiceAddress);
         }
 
         public EmployeeModel GetById(int id)
         {
-            return Get<EmployeeModel>($"{_serviceAddress}/{id}");
+            return Get<EmployeeModel>($"{_ServiceAddress}/{id}");
         }
 
         public void AddNew(EmployeeModel employee)
         {
-            Post(_serviceAddress, employee);
+            Post(_ServiceAddress, employee);
         }
 
         public EmployeeModel Update(int id, EmployeeModel employee)
         {
-            var response = Put($"{_serviceAddress}/{id}", employee);
+            var response = Put($"{_ServiceAddress}/{id}", employee);
             return response.Content.ReadAsAsync<EmployeeModel>().Result;
         }
 
         public void Delete(int id)
         {
-            Delete($"{_serviceAddress}/{id}");
+            Delete($"{_ServiceAddress}/{id}");
         }
 
         public void SaveChanges()
