@@ -55,7 +55,22 @@ namespace WebStore.ServiceHosting
 
             services.AddSwaggerGen(opt =>
             {
-                opt.SwaggerDoc("v1", new OpenApiInfo{ Title = "WebStore_API A.Birula", Version = "v1"});
+                opt.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "WebStore API", 
+                    Version = "v1",
+                    Description = "API functionality",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "A.Birula",
+                        Email = "ice19942335@gmail.com",
+                        Url = new Uri("http://birula.info")
+                    },
+                    License = new OpenApiLicense
+                    {
+                        Name = "License: Free"
+                    }
+                });
             });
         }
 
@@ -75,7 +90,7 @@ namespace WebStore.ServiceHosting
             app.UseSwagger();
             app.UseSwaggerUI(opt =>
             {
-                opt.SwaggerEndpoint("./swagger/v1/swagger.json", "WebStore_API A.Birula");
+                opt.SwaggerEndpoint("./swagger/v1/swagger.json", "WebStore API");
                 opt.RoutePrefix = string.Empty;
             });
 
