@@ -13,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 using WebStore.DAL.Context;
 using WebStore.Domain.Entities.Identity;
 using WebStore.Interfaces.Services;
@@ -51,6 +52,11 @@ namespace WebStore.ServiceHosting
             services.AddScoped<ICartService, CookieCartService>();
 
             services.AddControllers();
+
+            services.AddSwaggerGen(opt =>
+            {
+                opt.SwaggerDoc("v1", new OpenApiInfo{ Title = "WebStore_API A.Birula", Version = "v1"});
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,12 +64,21 @@ namespace WebStore.ServiceHosting
         {
             dbInitializer.InitializeAsync().Wait();
 
+            app.UseStaticFiles();
+            app.UseDefaultFiles();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            app.UseSwagger();
+            app.UseSwaggerUI(opt =>
+            {
+                opt.SwaggerEndpoint("./swagger/v1/swagger.json", "WebStore_API A.Birula");
+                opt.RoutePrefix = string.Empty;
+            });
+
             app.UseRouting();
             app.UseEndpoints(endpoints =>
             {
