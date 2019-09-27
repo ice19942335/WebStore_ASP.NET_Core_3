@@ -32,6 +32,8 @@ namespace WebStore.ServiceHosting
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvcCore();
+
             services.AddDbContext<WebStoreContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
             services.AddTransient<WebStoreContextInitializer>();
 
@@ -62,11 +64,7 @@ namespace WebStore.ServiceHosting
             }
 
             app.UseHttpsRedirection();
-
             app.UseRouting();
-
-            app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
