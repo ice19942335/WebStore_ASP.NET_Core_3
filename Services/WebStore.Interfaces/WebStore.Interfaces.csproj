@@ -5,11 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Common\WebStore.Domain\WebStore.Domain.csproj" />
+    <Compile Remove="API\**" />
+    <EmbeddedResource Remove="API\**" />
+    <None Remove="API\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="API\" />
+    <ProjectReference Include="..\..\Common\WebStore.Domain\WebStore.Domain.csproj" />
   </ItemGroup>
 
 </Project>
