@@ -43,21 +43,6 @@ namespace WebStore
             services.AddIdentity<User, IdentityRole>(options => { /*Cookies configuration can be hire*/ })
                 .AddDefaultTokenProviders();
 
-            #region Identity - self-made store implementation based on WebAPI
-
-            services.AddTransient<IUserStore<User>, UserClient>();
-            services.AddTransient<IUserClaimStore<User>, UserClient>();
-            services.AddTransient<IUserPasswordStore<User>, UserClient>();
-            services.AddTransient<IUserTwoFactorStore<User>, UserClient>();
-            services.AddTransient<IUserEmailStore<User>, UserClient>();
-            services.AddTransient<IUserPhoneNumberStore<User>, UserClient>();
-            services.AddTransient<IUserLoginStore<User>, UserClient>();
-            services.AddTransient<IUserLockoutStore<User>, UserClient>();
-
-            services.AddTransient<IRoleStore<IdentityRole>, RoleClient>();
-
-            #endregion
-
             services.Configure<IdentityOptions>(cfg =>
             {
                 cfg.Password.RequireDigit = false;
@@ -73,6 +58,21 @@ namespace WebStore
 
                 cfg.User.RequireUniqueEmail = false; //.....................................    Грабли
             });
+
+            #region Identity - self-made store implementation based on WebAPI
+
+            services.AddTransient<IUserStore<User>, UserClient>();
+            services.AddTransient<IUserClaimStore<User>, UserClient>();
+            services.AddTransient<IUserPasswordStore<User>, UserClient>();
+            services.AddTransient<IUserTwoFactorStore<User>, UserClient>();
+            services.AddTransient<IUserEmailStore<User>, UserClient>();
+            services.AddTransient<IUserPhoneNumberStore<User>, UserClient>();
+            services.AddTransient<IUserLoginStore<User>, UserClient>();
+            services.AddTransient<IUserLockoutStore<User>, UserClient>();
+
+            services.AddTransient<IRoleStore<IdentityRole>, RoleClient>();
+
+            #endregion
 
             services.ConfigureApplicationCookie(cfg =>
             {
