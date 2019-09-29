@@ -18,6 +18,7 @@ using WebStore.Clients.Users;
 using WebStore.DAL.Context;
 using WebStore.Domain.Entities.Identity;
 using WebStore.Domain.Entities.Product;
+using WebStore.Infrastructure.Middleware;
 using WebStore.Interfaces.Services;
 using WebStore.Services;
 using WebStore.Services.Data;
@@ -110,9 +111,10 @@ namespace WebStore
             app.UseAuthentication(); //Should be after "UseRouting" middleware
             app.UseAuthorization();  //Should be after "UseRouting" middleware
 
+            app.UseMiddleware<ErrorHandlingMiddleware>();
+
             app.UseEndpoints(endpoints =>
-            { 
-                //endpoints.MapControllers();
+            {
                 endpoints.MapAreaControllerRoute(
                     "admin",
                     "admin",

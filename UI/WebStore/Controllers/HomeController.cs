@@ -20,6 +20,9 @@ namespace WebStore.Controllers
 
         public IActionResult Index(int? sectionId, int? brandId)
         {
+
+            //throw new ApplicationException("Test");
+
             var products = _productData.GetProducts(new ProductFilter
             {
                 SectionId = sectionId,
