@@ -1,0 +1,12 @@
+2019-09-29 13:11:26,477 INFO Now listening on: http://localhost:5000
+2019-09-29 13:11:26,492 INFO Application started. Press Ctrl+C to shut down.
+2019-09-29 13:11:26,494 INFO Hosting environment: Development
+2019-09-29 13:11:26,496 INFO Content root path: C:\Users\ice19\source\repos\WebStore\UI\WebStore
+2019-09-29 13:11:27,451 INFO Request starting HTTP/1.1 GET http://localhost:5000/  
+2019-09-29 13:11:27,657 INFO Executing endpoint 'WebStore.Controllers.HomeController.Index (WebStore)'
+2019-09-29 13:11:27,858 INFO Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32]) on controller WebStore.Controllers.HomeController (WebStore).
+2019-09-29 13:11:29,614 INFO Executing ViewResult, running view Index.
+2019-09-29 13:11:30,447 INFO Executed ViewResult - view Index executed in 841.1932ms.
+2019-09-29 13:11:30,452 INFO Executed action WebStore.Controllers.HomeController.Index (WebStore) in 2589.2543ms
+2019-09-29 13:11:30,456 INFO Executed endpoint 'WebStore.Controllers.HomeController.Index (WebStore)'
+2019-09-29 13:11:30,472 INFO Request finished in 3109.083ms 200 text/html; charset=utf-8

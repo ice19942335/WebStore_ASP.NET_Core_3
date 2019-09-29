@@ -1,0 +1,30 @@
+2019-09-29 13:03:51,433 INFO Now listening on: http://localhost:5000
+2019-09-29 13:03:51,447 INFO Application started. Press Ctrl+C to shut down.
+2019-09-29 13:03:51,452 INFO Hosting environment: Development
+2019-09-29 13:03:51,467 INFO Content root path: C:\Users\ice19\source\repos\WebStore\UI\WebStore
+2019-09-29 13:03:52,668 INFO Request starting HTTP/1.1 GET http://localhost:5000/  
+2019-09-29 13:03:52,900 INFO Executing endpoint 'WebStore.Controllers.HomeController.Index (WebStore)'
+2019-09-29 13:03:53,082 INFO Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32]) on controller WebStore.Controllers.HomeController (WebStore).
+2019-09-29 13:03:55,403 INFO Executing ViewResult, running view Index.
+2019-09-29 13:03:56,151 INFO Executed ViewResult - view Index executed in 754.4476000000001ms.
+2019-09-29 13:03:56,154 INFO Executed action WebStore.Controllers.HomeController.Index (WebStore) in 3068.8782ms
+2019-09-29 13:03:56,174 INFO Executed endpoint 'WebStore.Controllers.HomeController.Index (WebStore)'
+2019-09-29 13:03:56,188 INFO Request starting HTTP/1.1 GET http://localhost:5000/css/prettyPhoto.css?v=y0RLo9DrNBrif_TlUCKOGErIm3LaAU1G5PJS2B7CbIY  
+2019-09-29 13:03:56,192 INFO Request starting HTTP/1.1 GET http://localhost:5000/css/animate.css?v=1hd71bAszHuD-mUtkDjY4bvGt1skFjn2qyNvNY8xMDY  
+2019-09-29 13:03:56,195 INFO Request starting HTTP/1.1 GET http://localhost:5000/css/main.css?v=CBYg9K72XxdYsc56-vwuA6fnZ4f8sH4etzSeM8_lV7Y  
+2019-09-29 13:03:56,199 INFO Request starting HTTP/1.1 GET http://localhost:5000/css/price-range.css?v=NdyDOcPb_A37dNIkEytXp489xYxlFmV4n9IuGjHhl78  
+2019-09-29 13:03:56,202 INFO Request starting HTTP/1.1 GET http://localhost:5000/css/responsive.css?v=RLHxXZsUnQfCzQaemrMADNl_lc1NlbB-Hh4e9bacGMc  
+2019-09-29 13:03:56,211 INFO The file /css/main.css was not modified
+2019-09-29 13:03:56,214 INFO The file /css/prettyPhoto.css was not modified
+2019-09-29 13:03:56,218 INFO Request finished in 3573.0537000000004ms 200 text/html; charset=utf-8
+2019-09-29 13:03:56,222 INFO The file /css/animate.css was not modified
+2019-09-29 13:03:56,224 INFO Request finished in 35.4793ms 304 text/css
+2019-09-29 13:03:56,229 INFO Request finished in 44.3318ms 304 text/css
+2019-09-29 13:03:56,230 INFO Request finished in 44.019000000000005ms 304 text/css
+2019-09-29 13:03:56,235 INFO The file /css/price-range.css was not modified
+2019-09-29 13:03:56,239 INFO The file /css/responsive.css was not modified
+2019-09-29 13:03:56,244 INFO Request finished in 57.2081ms 304 text/css
+2019-09-29 13:03:56,248 INFO Request finished in 47.104800000000004ms 304 text/css
+2019-09-29 13:03:56,526 INFO Request starting HTTP/1.1 GET http://localhost:5000/js/jquery.prettyPhoto.js?v=FYUvXmUE6sMqWH9E1HvDb1Q2BecA4pKBLZturRcWAv8  
+2019-09-29 13:03:56,533 INFO The file /js/jquery.prettyPhoto.js was not modified
+2019-09-29 13:03:56,538 INFO Request finished in 11.8673ms 304 application/javascript

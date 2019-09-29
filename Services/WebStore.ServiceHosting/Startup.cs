@@ -17,6 +17,7 @@ using Microsoft.OpenApi.Models;
 using WebStore.DAL.Context;
 using WebStore.Domain.Entities.Identity;
 using WebStore.Interfaces.Services;
+using WebStore.Logger;
 using WebStore.Services;
 using WebStore.Services.Data;
 using WebStore.Services.InMemory;
@@ -91,8 +92,10 @@ namespace WebStore.ServiceHosting
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, WebStoreContextInitializer dbInitializer)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, WebStoreContextInitializer dbInitializer, ILoggerFactory logger)
         {
+            logger.AddLog4Net();
+
             dbInitializer.InitializeAsync().Wait();
 
             app.UseStaticFiles();
