@@ -21,14 +21,14 @@ namespace WebStore
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                //.ConfigureLogging((host, log) =>
+                //{
+                //    log.AddFilter<ConsoleLoggerProvider>("System", LogLevel.Warning);
+                //    log.AddFilter<ConsoleLoggerProvider>("Microsoft", LogLevel.Warning);
+                //})
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                })
-                .ConfigureLogging((host, log) =>
-                {
-                    log.AddFilter<ConsoleLoggerProvider>("System", LogLevel.Warning);
-                    log.AddFilter<ConsoleLoggerProvider>("Microsoft", LogLevel.Warning);
                 });
     }
 }
