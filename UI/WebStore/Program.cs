@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Console;
 
 namespace WebStore
 {
@@ -23,6 +24,11 @@ namespace WebStore
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                })
+                .ConfigureLogging((host, log) =>
+                {
+                    log.AddFilter<ConsoleLoggerProvider>("System", LogLevel.Warning);
+                    log.AddFilter<ConsoleLoggerProvider>("Microsoft", LogLevel.Warning);
                 });
     }
 }
