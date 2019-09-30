@@ -18,21 +18,15 @@ namespace WebStore.Controllers
 
         public HomeController(IProductData productData) => _productData = productData;
 
-        public IActionResult Index(int? sectionId, int? brandId)
+        public IActionResult Index()
         {
 
             //throw new ApplicationException("Test");
 
-            var products = _productData.GetProducts(new ProductFilter
-            {
-                SectionId = sectionId,
-                BrandId = brandId
-            });
+            var products = _productData.GetProducts(new ProductFilter());
 
             var catalogModel = new CatalogViewModel
             {
-                BrandId = brandId,
-                SectionId = sectionId,
                 Products = products.Select(product => product.CreateProduct().CreateViewModel())
             };
 
