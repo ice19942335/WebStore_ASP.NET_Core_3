@@ -14,9 +14,9 @@ namespace WebStore.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IProductData _productData;
+        private readonly IProductService _productData;
 
-        public HomeController(IProductData productData) => _productData = productData;
+        public HomeController(IProductService productData) => _productData = productData;
 
         public IActionResult Index()
         {
@@ -35,12 +35,19 @@ namespace WebStore.Controllers
 
         public IActionResult ContactUs() => View();
 
-        public IActionResult CheckOut() => View();
-
         public IActionResult BlogSingle() => View();
 
         public IActionResult Blog() => View();
 
         public IActionResult Error404() => View();
+
+        public IActionResult ErrorStatusCode(string code)
+        {
+            switch (code)
+            {
+                case "404": return RedirectToAction(nameof(Error404));
+                default: return Content($"Error with code {code}");
+            }
+        }
     }
 }

@@ -9,7 +9,7 @@ using WebStore.Services.Map.DTO;
 
 namespace WebStore.Services.InMemory
 {
-    public class InMemoryProductData : IProductData
+    public class InMemoryProductData : IProductService
     {
         public IEnumerable<SectionDTO> GetSections() => InitializationData.Sections.Select(section => section.CreateSectionDTO());
 

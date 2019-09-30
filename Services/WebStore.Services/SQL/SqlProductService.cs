@@ -12,11 +12,11 @@ using WebStore.Services.Map.DTO;
 
 namespace WebStore.Services.SQL
 {
-    public class SqlProductData : IProductData
+    public class SqlProductService : IProductService
     {
         private readonly WebStoreContext _context;
 
-        public SqlProductData(WebStoreContext context) => _context = context;
+        public SqlProductService(WebStoreContext context) => _context = context;
 
         public IEnumerable<SectionDTO> GetSections() =>
             _context.Sections

@@ -15,9 +15,9 @@ namespace WebStore.Areas.Admin.Controllers
     [Authorize(Roles = Domain.Entities.Identity.User.RoleAdmin)]
     public class HomeController : Controller
     {
-        private readonly IProductData _productData;
+        private readonly IProductService _productData;
 
-        public HomeController(IProductData productData) => _productData = productData;
+        public HomeController(IProductService productData) => _productData = productData;
 
         public IActionResult Index()
         {

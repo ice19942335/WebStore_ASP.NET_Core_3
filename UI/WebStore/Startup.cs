@@ -39,7 +39,7 @@ namespace WebStore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IEmployeesData, EmployeesClient>();
-            services.AddScoped<IProductData, ProductsClient>();
+            services.AddScoped<IProductService, ProductsClient>();
             services.AddScoped<IOrderService, OrdersClient>();
             services.AddScoped<ICartService, CookieCartService>();
 

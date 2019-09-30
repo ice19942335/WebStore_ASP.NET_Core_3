@@ -13,9 +13,9 @@ namespace WebStore.Components
 {
     public class BrandsViewComponent : ViewComponent
     {
-        private readonly IProductData _productData;
+        private readonly IProductService _productData;
 
-        public BrandsViewComponent(IProductData productData) => _productData = productData;
+        public BrandsViewComponent(IProductService productData) => _productData = productData;
 
 
         public IViewComponentResult Invoke()

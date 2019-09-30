@@ -6,7 +6,7 @@ using WebStore.Domain.Entities.Product;
 namespace WebStore.Interfaces.Services
 {
     /// <summary>Product service</summary>
-    public interface IProductData
+    public interface IProductService
     {
         IEnumerable<SectionDTO> GetSections();
 

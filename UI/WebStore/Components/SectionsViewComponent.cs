@@ -10,8 +10,8 @@ namespace WebStore.Components
 {
     public class SectionsViewComponent : ViewComponent
     {
-        private readonly IProductData _productData;
-        public SectionsViewComponent(IProductData productData) => _productData = productData;
+        private readonly IProductService _productData;
+        public SectionsViewComponent(IProductService productData) => _productData = productData;
         public IViewComponentResult Invoke()
         {
             var sections = GetSections();

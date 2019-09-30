@@ -14,9 +14,9 @@ namespace WebStore.Controllers
 {
     public class CatalogController : Controller
     {
-        private readonly IProductData _productData;
+        private readonly IProductService _productData;
 
-        public CatalogController(IProductData productData) => _productData = productData;
+        public CatalogController(IProductService productData) => _productData = productData;
 
         public IActionResult Shop(int? sectionId, int? brandId)
         {
