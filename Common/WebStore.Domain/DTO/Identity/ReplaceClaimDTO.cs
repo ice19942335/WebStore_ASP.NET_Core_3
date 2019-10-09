@@ -1,7 +1,6 @@
 ﻿using System.Security.Claims;
-using WebStore.Domain.Entities.Identity;
 
-namespace WebStore.Domain.Identity
+namespace WebStore.Domain.DTO.Identity
 {
     public class ReplaceClaimDTO : ClaimInfoDTO
     {

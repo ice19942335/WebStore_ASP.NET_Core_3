@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Security.Claims;
 
-namespace WebStore.Domain.Identity
+namespace WebStore.Domain.DTO.Identity
 {
     public abstract class ClaimInfoDTO : UserInfoDTO
     {

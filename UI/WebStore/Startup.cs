@@ -25,6 +25,7 @@ using WebStore.Services.Data;
 using WebStore.Services.InMemory;
 using WebStore.Services.SQL;
 using WebStore.Logger;
+using WebStore.Services.Cart;
 
 namespace WebStore
 {

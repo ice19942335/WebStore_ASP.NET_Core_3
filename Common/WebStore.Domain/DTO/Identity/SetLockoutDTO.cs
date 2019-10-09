@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WebStore.Domain.Identity
+namespace WebStore.Domain.DTO.Identity
 {
     public class SetLockoutDTO : UserInfoDTO
     {

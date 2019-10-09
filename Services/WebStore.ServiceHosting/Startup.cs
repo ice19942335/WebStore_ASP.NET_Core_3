@@ -19,6 +19,7 @@ using WebStore.Domain.Entities.Identity;
 using WebStore.Interfaces.Services;
 using WebStore.Logger;
 using WebStore.Services;
+using WebStore.Services.Cart;
 using WebStore.Services.Data;
 using WebStore.Services.InMemory;
 using WebStore.Services.SQL;

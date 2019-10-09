@@ -10,7 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using WebStore.Clients.Base;
 using WebStore.Domain.Entities.Identity;
-using WebStore.Domain.Identity;
+using WebStore.Domain.DTO.Identity;
 using WebStore.Interfaces.Services;
 
 namespace WebStore.Clients.Users
